@@ -24,14 +24,36 @@
             font-size: 2.5em;
         }
         main {
+            display: flex;
             padding: 20px;
+            height: calc(100vh - 120px); /* Adjust for header and footer */
+            gap: 20px;
         }
-        #searchBox {
-            margin: 30px 0;
+        #searchResults {
+            flex: 0 0 40%; /* Reduced size for the search results section */
+            height: 100%;
+            border: 1px solid #ddd;
+            background-color: white;
+            overflow-y: auto;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            padding: 10px;
         }
-        #results {
-            display: none;
-            margin-top: 30px;
+        #preview {
+            flex: 0 0 60%; /* Increased size for the preview section */
+            height: 100%;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            padding: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .gcse-search {
+            margin-bottom: 20px;
         }
         footer {
             text-align: center;
@@ -52,32 +74,24 @@
     </header>
 
     <main>
-        <!-- Search box integration -->
-        <div id="searchBox">
-            <div class="gcse-searchbox"></div>
+        <!-- Search Results Column -->
+        <div id="searchResults">
+            <!-- Search Box -->
+            <div class="gcse-search"></div>
+            <!-- Results -->
+            <div class="gcse-searchresults"></div>
         </div>
 
-        <!-- Search results section -->
-        <div id="results">
-            <div class="gcse-searchresults"></div>
+        <!-- Preview Column -->
+        <div id="preview">
+            <h2>Preview Section</h2>
+            <p>Selected article details will appear here.</p>
         </div>
     </main>
 
     <footer>
         <p>&copy; 2024 Literature Review Tool | All Rights Reserved</p>
     </footer>
-
-    <script>
-        // Show results when a search is submitted
-        window.onload = function() {
-            const searchDiv = document.querySelector('.gcse-searchbox');
-            const resultsDiv = document.getElementById('results');
-
-            searchDiv.addEventListener('submit', function() {
-                resultsDiv.style.display = 'block'; // Display results
-            });
-        };
-    </script>
 
 </body>
 </html>
