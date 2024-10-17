@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -52,11 +52,15 @@
     </header>
 
     <main>
+        <!-- Search box integration -->
         <div id="searchBox">
             <div class="gcse-searchbox"></div>
         </div>
 
-        <div id="results" class="gcse-searchresults-only"></div>
+        <!-- Search results section -->
+        <div id="results">
+            <div class="gcse-searchresults"></div>
+        </div>
     </main>
 
     <footer>
@@ -64,17 +68,16 @@
     </footer>
 
     <script>
-        // Listen for the search event
+        // Show results when a search is submitted
         window.onload = function() {
-            const searchDiv = document.querySelector('.gcse-search');
+            const searchDiv = document.querySelector('.gcse-searchbox');
             const resultsDiv = document.getElementById('results');
 
             searchDiv.addEventListener('submit', function() {
-                resultsDiv.style.display = 'block'; // Show results when search is submitted
+                resultsDiv.style.display = 'block'; // Display results
             });
         };
     </script>
 
 </body>
 </html>
-
